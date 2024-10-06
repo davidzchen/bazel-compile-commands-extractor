@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
     std::cout << argv[i] << "\n";
   }
   std::cout << "===HEDRON_COMPILE_COMMANDS_END_ARGS===\n";
-  // We purposely return a non-zero exit code to have the emcc process exit after running this fake clang wrapper.
+  // We purposely return a non-zero exit code to have the emcc process exit
+  // after running this fake clang wrapper.
   return 1;
 }
