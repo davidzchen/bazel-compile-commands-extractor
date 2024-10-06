@@ -14,10 +14,10 @@ def hedron_compile_commands_setup_transitive_transitive_transitive(module_ctx = 
     # Why?
     # Bazel doesn't let you call a load except at the top level after v3 or so :/, so you have to resort to calling waves of workspace functions, one per each additional layer of transitive dependencies.
     # For more info see:
-        # https://bazel.build/external/overview#shortcomings_of_the_workspace_system
-        # https://github.com/bazelbuild/bazel/issues/1550
-        # https://github.com/bazelbuild/bazel/issues/5815
-        # https://github.com/hedronvision/bazel-make-cc-https-easy/issues/14
+    # https://bazel.build/external/overview#shortcomings_of_the_workspace_system
+    # https://github.com/bazelbuild/bazel/issues/1550
+    # https://github.com/bazelbuild/bazel/issues/5815
+    # https://github.com/hedronvision/bazel-make-cc-https-easy/issues/14
 
     # Unified setup for users' WORKSPACES and this workspace when used standalone.
     # See invocations in:
@@ -33,8 +33,8 @@ def hedron_compile_commands_setup_transitive_transitive_transitive(module_ctx = 
     # Originally added for rules_python, which we reverted, but are keeping this interface to be used once it's fixed. See https://github.com/hedronvision/bazel-compile-commands-extractor/issues/168 for details.
     pass
 
-
-hedron_compile_commands_extension = module_extension( # Note: Doesn't break loading from WORKSPACE as far back as Bazel 5.0.0
+hedron_compile_commands_extension = module_extension(
+    # Note: Doesn't break loading from WORKSPACE as far back as Bazel 5.0.0
     implementation = hedron_compile_commands_setup_transitive_transitive_transitive,
     # This extension is automatically loaded when using bzlmod (from MODULE.bazel) and will run the same function as WORKSPACE,
     # but passes in a module_ctx object for advanced context of the whole project, allowing for complex, project wide modifiying extensions and distinguishing between WORKSPACE and bzlmod setups.
